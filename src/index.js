@@ -12,20 +12,21 @@ app.get('/hello-text/', (req, res) => {
 
 app.get('/hello/', (req, res) => {
   fs.readFile('data/hello.txt', 'utf-8', function(err, contents) {
-    res.json({ hello: '<name>' })
+    res.json({ 'name' : contents })
   })
 })
 
-app.get('/hello-param/:name', (req, res) => {
+app.get('/hello-param/', (req, res) => {
   fs.readFile('data/hello.txt', 'utf-8', function(err, contents) {
-    res.json(req.params.name)
-    console.log(req.params.name)
+    res.json({ 'name' : req.query.name})
+    console.log(req.query.name)
   })
 })
 
 app.post('/hello-json/', (req, res) => {
   fs.readFile('data/hello.txt', 'utf-8', function(err, contents) {
     res.send(req.body)
+    console.log(req.body)
   })
 })
 
