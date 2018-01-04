@@ -18,11 +18,6 @@ app.get('/hello/', (req, res) => {
   })
 })
 
-app.post('/hello-json/', (req, res) => {
-  fs.readFile('data/hello.txt', 'utf-8', function(err, contents) {
-    res.send(req.body)
-    console.log(req.body)
-  })
-})
+app.post('/hello-json/', (req, res) => res.send(req.body))
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
