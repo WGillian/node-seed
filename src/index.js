@@ -7,18 +7,13 @@ app.get('/', (req, res) => res.send('Hello World!'))
 app.get('/hello-text/', (req, res) => {
   fs.readFile('data/hello.txt', 'utf-8', function(err, contents) {
     res.send(contents)
+    console.log(req.query.name)
   })
 })
 
 app.get('/hello/', (req, res) => {
   fs.readFile('data/hello.txt', 'utf-8', function(err, contents) {
     res.json({ 'name' : contents })
-  })
-})
-
-app.get('/hello-param/', (req, res) => {
-  fs.readFile('data/hello.txt', 'utf-8', function(err, contents) {
-    res.json({ 'name' : req.query.name})
     console.log(req.query.name)
   })
 })
